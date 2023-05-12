@@ -17,7 +17,7 @@ import javax.swing.JMenu;
 import java.awt.TextField;
 
 public class InicioSesion {
-
+	//I'm beautiful
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;

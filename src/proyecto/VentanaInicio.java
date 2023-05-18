@@ -1,48 +1,94 @@
 package proyecto;
 
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class VentanaInicio extends JFrame {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public VentanaInicio() {
+    public VentanaInicio() {
         setTitle("Ventana de Inicio");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 300);
+        setSize(500, 350);
         setLocationRelativeTo(null);
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         // Establecer el fondo de la ventana
         String imagePath = "C:\\Users\\edwar\\Downloads\\avion.png";
         ImageIcon imageIcon = new ImageIcon(imagePath);
         JLabel background = new JLabel(imageIcon);
         background.setBounds(0, 0, 500, 300);
-        add(background);
+        getContentPane().add(background);
 
         // Crear y agregar el texto en el centro superior
         JLabel textoBienvenida = new JLabel("Bienvenidos a Apianca AirLines");
         textoBienvenida.setBounds(0, 50, 500, 30);
         textoBienvenida.setHorizontalAlignment(JLabel.CENTER);
         textoBienvenida.setFont(new Font("Arial", Font.BOLD, 16));
+        textoBienvenida.setForeground(Color.WHITE);
         background.add(textoBienvenida);
 
-        // Crear y agregar los botones en el centro
+        // Crear y agregar el botón "Iniciar sesión"
         JButton btnIniciarSesion = new JButton("Iniciar sesión");
         btnIniciarSesion.setBounds(180, 120, 140, 30);
         background.add(btnIniciarSesion);
 
+        // Agregar acción al botón "Iniciar sesión"
+        btnIniciarSesion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Acción al hacer clic en "Iniciar sesión"
+                // Abrir una nueva ventana
+                VentanaOtra ventanaOtra = new VentanaOtra("Ventana de Inicio de Sesión");
+                ventanaOtra.setVisible(true);
+            }
+        });
+
+        // Crear y agregar el botón "Registrarse"
         JButton btnRegistrarse = new JButton("Registrarse");
         btnRegistrarse.setBounds(180, 160, 140, 30);
         background.add(btnRegistrarse);
+
+        // Agregar acción al botón "Registrarse"
+        btnRegistrarse.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Acción al hacer clic en "Registrarse"
+                // Abrir una nueva ventana
+                VentanaOtra ventanaOtra = new VentanaOtra("Ventana de Registro");
+                ventanaOtra.setVisible(true);
+            }
+        });
+        
+                // Crear y agregar el texto en la parte inferior
+                JLabel textoCreadoPor = new JLabel("Creado por: Edward Esteban Sanchez Motta, Santiago Galvis Mora y JuanPablo Rios Espinosa");
+                getContentPane().add(textoCreadoPor);
+                textoCreadoPor.setBounds(-6, 291, 480, 30);
+                textoCreadoPor.setHorizontalAlignment(JLabel.CENTER);
+                textoCreadoPor.setFont(new Font("Arial", Font.PLAIN, 8));
 
         setVisible(true);
     }
 
     public static void main(String[] args) {
         new VentanaInicio();
+    }
+}
+
+class VentanaOtra extends JFrame {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public VentanaOtra(String titulo) {
+        setTitle(titulo);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(400, 200);
+        setLocationRelativeTo(null);
+        setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Esta es otra ventana: " + titulo);
+        add(label);
     }
 }

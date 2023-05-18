@@ -55,11 +55,11 @@ public class VentanaInicio extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Acción al hacer clic en "Registrarse"
                 // Abrir una nueva ventana
-                VentanaOtra ventanaOtra = new VentanaOtra("Ventana de Registro");
-                ventanaOtra.setVisible(true);
+                VentanaRegistro ventanaRegistro = new VentanaRegistro("Ventana de Registro");
+                ventanaRegistro.setVisible(true);
             }
         });
-        
+
         // Crear y agregar el texto en la parte inferior
         JLabel textoCreadoPor = new JLabel("Creado por: Edward Esteban Sanchez Motta, Santiago Galvis Mora y JuanPablo Rios Espinosa");
         getContentPane().add(textoCreadoPor);
